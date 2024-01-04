@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgu60l21qeb5c"]
+
+[ext_resource type="Script" path="res://Node2D.gd" id="1_piuep"]
+[ext_resource type="Texture2D" uid="uid://bbcxiopqyqpe" path="res://Assets/Img/Tampilan Awal (1).png" id="2_vyy2i"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_piuep")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(574, 321)
+texture = ExtResource("2_vyy2i")
+
+[node name="Control" type="Control" parent="Sprite2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Sprite2D/Control"]
+layout_mode = 0
+offset_left = -70.0
+offset_top = -90.0
+offset_right = 136.0
+offset_bottom = 68.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sprite2D/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="resume" type="Button" parent="Sprite2D/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "	RESUME"
+
+[node name="quit" type="Button" parent="Sprite2D/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "QUIT"
+
+[connection signal="pressed" from="Sprite2D/Control/MarginContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Sprite2D/Control/MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
